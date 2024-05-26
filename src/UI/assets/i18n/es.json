@@ -1,0 +1,34 @@
+{
+    "LIST":{
+        "HEADER_LIST": "Listado de heroes",
+        "SUB_HEADER": "Clean Code Arch by Rafael Perera",
+        "SEARCH_INPUT": "Escribe aqui para buscar",
+        "CREATE_BTN": "Crear Heroe",
+        "TABLE":{
+            "HEADER_IMG": "Foto",
+            "HEADER_NAME": "Nombre",
+            "HEADER_POWER": "Poder",
+            "HEADER_HEIGHT":"Altura"
+            
+        }
+    },
+    "NEW_HERO": {
+        "INTRO_HEADER": "Crear Heroe",
+        "CREATE_BTN": "Crear Heroe",
+        "FORM":{
+            "NAME": "Nombre",
+            "POWER": "Poder",
+            "URL": "Url Imagen",
+            "HEIGHT": "Altura"
+        },
+        "VALIDATORS": {
+            "NAME": "Nombre invalido",
+            "POWER": "Poder invalido",
+            "HEIGHT": "Altura invalida",
+            "URL": "Url de imagen invalida"
+        }
+    },
+    "HTTP_ERRORS":{
+        "GENERIC": "Algo salio mal, vuelve a intentarlo"
+    }
+}

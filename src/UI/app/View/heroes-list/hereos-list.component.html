@@ -1,0 +1,57 @@
+<section class="w-full bg-cover bg-center py-10 items-center">
+    <div class="w-full flex justify-end items-center flex-row pr-10 mb-10">
+      <div class="cursor-pointer flex items-center">
+        <p class="text-white mr-4 font-medium" [i18n]="'LIST.CREATE_BTN'" (click)="createNewHero()"></p>
+      </div>
+    </div>
+      <div class="container mx-auto text-center text-white flex-col items-center justify-center">
+        <h1 class="text-5xl font-medium mb-6" [i18n]="'LIST.HEADER_LIST'"></h1>
+        <p class="text-xl mb-12" [i18n]="'LIST.SUB_HEADER'"></p>
+        <div class="search-form">
+          <div class="input-group">
+            <div class='max-w-md mx-auto px-5'>
+              <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden mx">
+                  <div class="grid place-items-center h-full w-12 text-gray-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                  </div>
+          
+                  <input
+                  class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+                  type="text"
+                  id="search"
+                  [(ngModel)]="searchTerm"
+                  [placeholder]="translate.instant('LIST.SEARCH_INPUT')" /> 
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="flex flex-col gap-2 px-4 w-full justify-center">
+      <ng-container *ngIf="vm.heroesSubject| async as heroes; else elseTemplate">
+        <div class="flex text-white w-full justify-between border-b border-gray-400 items-center py-4 pr-4 pl-20  truncate">
+          <span class="py-2 px-6" [i18n]="'LIST.TABLE.HEADER_IMG'"></span>
+          <span class="py-2  px-6" [i18n]="'LIST.TABLE.HEADER_NAME'"></span>
+          <span class="py-2  px-6" [i18n]="'LIST.TABLE.HEADER_POWER'"></span>
+          <span class="py-2  px-6"[i18n]="'LIST.TABLE.HEADER_HEIGHT'"></span>
+        </div>
+        <div *ngFor="let hero of heroes | filterHeroByName:searchTerm">
+          <app-hero-card [hero]="hero"></app-hero-card>
+        </div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <ul class="mt-5 space-y-3 gap-3 flex flex-col">
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <div class="flex text-white w-full justify-between items-center animate-pulse h-8 bg-gray-200 rounded-md dark:bg-gray-700"></div>
+        </ul>
+      </ng-template>
+    </section>

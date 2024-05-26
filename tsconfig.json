@@ -1,0 +1,79 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "paths": {
+      "@directives/*": [
+        "src/core/directives/*"
+      ],
+      "@guards/*": [
+        "src/core/guards/*"
+      ],
+      "@interceptors/*": [
+        "src/core/interceptors/*"
+      ],
+      "@base/*": [
+        "src/core/base/*"
+      ],
+      "@pipes/*": [
+        "src/core/pipes/*"
+      ],
+      "@shared/*": [
+        "src/core/shared/*"
+      ],
+      "@utils/*": [
+        "src/core/utils/*"
+      ],
+      "@data/*": [
+        "src/data/*"
+      ],
+      "@models/*": [
+        "src/domain/models/*"
+      ],
+      "@repositories/*": [
+        "src/domain/repositories/*"
+      ],
+      "@usecases/*": [
+        "src/domain/usecases/*"
+      ],
+      "@view_models/*": [
+        "src/presentation/app/view_models/*"
+      ],
+      "@views/*": [
+        "src/presentation/app/views/*"
+      ],
+      "@environments/*": [
+        "src/environments/*"
+      ]
+    },
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

@@ -1,0 +1,50 @@
+<section class="w-full bg-cover bg-center py-24 flex justify-center items-center">
+    <form class="lg:w-1/2 md:w-full sm:w-full flex justify-center" action="" [formGroup]="newHeroForm">
+        <div class="max-w-md w-full bg-white rounded p-6 ">
+
+            <div class="mb-4">
+                <h1 class="text-xl font-bold" [i18n]='"NEW_HERO.INTRO_HEADER"'></h1>
+            </div>
+            <div>
+                <input formControlName="name" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" [placeholder]="translate.instant('NEW_HERO.FORM.NAME')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="newHeroForm.controls['name'].invalid && (newHeroForm.controls['name'].dirty || newHeroForm.controls['name'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"NEW_HERO.VALIDATORS.NAME"' *ngIf="newHeroForm.controls['name'].errors"></small>
+                </ng-container>                      
+            </div>
+
+
+            <div>
+                <input formControlName="power" [placeholder]="translate.instant('NEW_HERO.FORM.POWER')" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text">
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="newHeroForm.controls['power'].invalid && (newHeroForm.controls['power'].dirty || newHeroForm.controls['power'].touched)">
+                    <p class=" text-sm text-red-500" [i18n]='"NEW_HERO.VALIDATORS.POWER"' *ngIf="newHeroForm.controls['power'].errors"></p>
+                </ng-container>
+            </div>
+
+            <div>
+                <input formControlName="avatar" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" [placeholder]="translate.instant('NEW_HERO.FORM.URL')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="newHeroForm.controls['avatar'].invalid && (newHeroForm.controls['avatar'].dirty || newHeroForm.controls['avatar'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"NEW_HERO.VALIDATORS.URL"' *ngIf="newHeroForm.controls['avatar'].errors"></small>
+                </ng-container>                      
+            </div>
+
+            <div>
+                <input formControlName="height" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="number" [placeholder]="translate.instant('NEW_HERO.FORM.HEIGHT')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="newHeroForm.controls['height'].invalid && (newHeroForm.controls['height'].dirty || newHeroForm.controls['height'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"NEW_HERO.VALIDATORS.HEIGHT"' *ngIf="newHeroForm.controls['height'].errors"></small>
+                </ng-container>                      
+            </div>
+
+            <div class="pt-4">
+                <button (click)="createNewHero()" [i18n]='"NEW_HERO.CREATE_BTN"' [ngClass]="{'opacity-60': !newHeroForm.valid}" [disabled]="!newHeroForm.valid" class="w-full rounded-md bg-black px-3 py-4 text-white"></button>
+            </div>
+        </div>
+    </form>
+</section>
