@@ -29,6 +29,6 @@ const routes: Routes = [
         ReactiveFormsModule,
         DataModule,
         PipesModule
-    ]
+    ],
 })
 export class HeroesListModule { }

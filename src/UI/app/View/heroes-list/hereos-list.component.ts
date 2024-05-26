@@ -12,7 +12,11 @@ export class HereosListComponent {
 
   searchTerm: string = ""
 
-  constructor(private router:Router,public translate: TranslateService, public vm: HeroesListViewModel){
+  constructor(
+    private router:Router,
+    public translate: TranslateService, 
+    public vm: HeroesListViewModel,
+  ){
     vm.initViewModel()
   }
 

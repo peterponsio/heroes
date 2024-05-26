@@ -2,6 +2,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 import { HeroModel } from '@models/hero.models';
+import { debounceTime, of } from 'rxjs';
 
 @Pipe({
   name: 'filterHeroByName',
@@ -26,7 +27,13 @@ export class FilterHeroByNamePipe implements PipeTransform {
       } 
       return heroUpper
     })
-   
+
+    of(upperfilteredHeroes)
+    .pipe(
+      debounceTime(1500)
+    ).subscribe(_=>{
+      return upperfilteredHeroes
+    })
     return upperfilteredHeroes
   }
 }

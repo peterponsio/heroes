@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NewHeroViewModel } from './new-hero.viewmodel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-hero',
@@ -11,7 +12,12 @@ import { TranslateService } from '@ngx-translate/core';
 export class NewHeroComponent {
 
   newHeroForm: FormGroup = this.formBuilder.group({});
-  constructor(private vm: NewHeroViewModel, private formBuilder: FormBuilder,public translate: TranslateService){}
+  constructor(
+    private vm: NewHeroViewModel, 
+    private formBuilder: FormBuilder,
+    public translate: TranslateService,
+    private router: Router
+  ){}
 
   ngOnInit(): void {
     this.startForm()
@@ -30,5 +36,8 @@ export class NewHeroComponent {
     this.vm.createNewHero(this.newHeroForm.getRawValue())
   }
   
+  goBack(){
+    this.router.navigate(["/heroes-list"])
+  }
 
 }

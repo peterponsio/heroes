@@ -15,6 +15,7 @@
     "NEW_HERO": {
         "INTRO_HEADER": "Crear Heroe",
         "CREATE_BTN": "Crear Heroe",
+        "BACK_BTN": "Volver",
         "FORM":{
             "NAME": "Nombre",
             "POWER": "Poder",

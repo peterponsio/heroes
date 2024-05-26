@@ -6,5 +6,6 @@ import { FilterHeroByNamePipe } from './filter-characters-by-name.pipe';
   declarations: [FilterHeroByNamePipe],
   imports: [CommonModule],
   exports: [FilterHeroByNamePipe],
+  providers: [FilterHeroByNamePipe]
 })
 export class PipesModule {}

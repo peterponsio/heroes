@@ -23,7 +23,7 @@ export class HeroDataSource extends HeroRemoteDataSource {
     const body = {
       "createdAt": new Date(),
       "name": param.name,
-      "avatar": "https://www.cinemascomics.com/wp-content/uploads/2021/06/Superman.jpg",
+      "avatar": param.avatar ?? "https://www.cinemascomics.com/wp-content/uploads/2021/06/Superman.jpg",
       "power": param.power,
       "height": param.height,
       "id": new Date()

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HeroModel } from '@models/hero.models';
 import { HeroesListUseCase } from '@usecases/get-heroes-list.usecase';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable()
 export class HeroesListViewModel {
   
-  public heroesSubject = new Subject<HeroModel[]>()
+  public heroesSubject = new BehaviorSubject<HeroModel[]>([])
   constructor(private heroListUseCase: HeroesListUseCase) {}
 
     initViewModel() {
