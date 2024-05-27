@@ -4,15 +4,18 @@ import { Observable } from 'rxjs';
 import { Request } from '@base/request';
 import { HeroDao, HeroDTO, HeroModel } from '@models/hero.models';
 import { HeroRemoteDataSource } from '@data/source/hero/HeroRemoteDataSource';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class HeroDataSource extends HeroRemoteDataSource {
   
   private path = `${environment.baseUrl.DEV}`;
  
-  constructor(private db: Request, private http: HttpClient) {
+  constructor(private db: Request) {
     super();
+  }
+
+  override getHeroById(heroId: string): Observable<HeroModel> {
+    return this.db.doRequest<any>('get',`${this.path}/superheroes/${heroId}`)
   }
 
   override editHeroById(param: HeroDao): Observable<HeroModel> {
@@ -39,6 +42,7 @@ export class HeroDataSource extends HeroRemoteDataSource {
       "height": param.height,
       "id": new Date()
     }
+    console.log("body ", body);
     
     return this.db.doRequest<any>('post',`${this.path}/superheroes`,body)
   }

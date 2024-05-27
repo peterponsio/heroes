@@ -21,7 +21,8 @@
                   class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
                   type="text"
                   id="search"
-                  [(ngModel)]="searchTerm"
+                  [(ngModel)]="searchTermUpdater"
+                  (ngModelChange)="this.searchTermUpdate.next($event)"
                   [placeholder]="translate.instant('LIST.SEARCH_INPUT')" /> 
               </div>
           </div>
@@ -43,14 +44,14 @@
       </ng-container>
       <ng-template #elseTemplate>
         <ul class="mt-5 space-y-3 gap-3 flex flex-col">
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
-          <li class="w-full h-8 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
+          <li class="w-full h-14 mb-6 bg-gray-200 rounded-md dark:bg-gray-700 animate-pulse"></li>
           <div class="flex text-white w-full justify-between items-center animate-pulse h-8 bg-gray-200 rounded-md dark:bg-gray-700"></div>
         </ul>
       </ng-template>

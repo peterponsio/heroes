@@ -5,4 +5,5 @@ export abstract class HeroDataRepository {
   abstract getListHeroesData(): Observable<HeroModel[]>
   abstract createNewHero(param:HeroDao): Observable<HeroModel>
   abstract editHeroById(param: HeroDao): Observable<HeroModel>
+  abstract getHeroById(heroId: string): Observable<HeroModel>
 }

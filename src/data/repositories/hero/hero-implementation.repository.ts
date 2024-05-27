@@ -14,6 +14,10 @@ export class HeroImpRepository extends HeroDataRepository {
     super();
   }
 
+  override getHeroById(heroId: string): Observable<HeroModel> {
+    return this.heroRemoteDataSource.getHeroById(heroId)
+  }
+
   override editHeroById(param: HeroDao): Observable<HeroModel> {
     return this.heroRemoteDataSource.editHeroById(param)
     .pipe(

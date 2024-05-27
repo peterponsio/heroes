@@ -9,6 +9,7 @@ import { HeroImpRepository } from './repositories/hero/hero-implementation.repos
 import { HeroDataSource } from './datasource/hero/hero-datasource';
 import { CreateHeroUseCase } from '@usecases/create-hero.usecase';
 import { EditHeroUseCase } from '@usecases/edit-hero.usecase';
+import { GetHeroByIdUseCase } from '@usecases/get-hero-by-id.usecase';
 
 @NgModule({
   providers: [
@@ -16,6 +17,7 @@ import { EditHeroUseCase } from '@usecases/edit-hero.usecase';
     HeroesListUseCase,
     CreateHeroUseCase,
     EditHeroUseCase,
+    GetHeroByIdUseCase,
     { provide: HeroDataRepository, useClass: HeroImpRepository },
     { provide: HeroRemoteDataSource, useClass: HeroDataSource },
 

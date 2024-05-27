@@ -6,7 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 @Injectable()
 export class HeroesListViewModel {
   
-  public heroesSubject = new BehaviorSubject<HeroModel[]>([])
+  public heroesSubject = new Subject<HeroModel[]>()
   constructor(private heroListUseCase: HeroesListUseCase) {}
 
     initViewModel() {

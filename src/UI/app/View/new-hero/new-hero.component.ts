@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { NewHeroViewModel } from './new-hero.viewmodel';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-new-hero',
@@ -11,7 +12,10 @@ import { Router } from '@angular/router';
 })
 export class NewHeroComponent {
 
+  destroyRef = inject(DestroyRef)
   newHeroForm: FormGroup = this.formBuilder.group({});
+  isLoading: boolean = false
+
   constructor(
     private vm: NewHeroViewModel, 
     private formBuilder: FormBuilder,
@@ -21,6 +25,10 @@ export class NewHeroComponent {
 
   ngOnInit(): void {
     this.startForm()
+
+    this.vm.isLoading
+    .pipe(takeUntilDestroyed(this.destroyRef))
+    .subscribe(res => this.isLoading = res)
   }
 
   startForm(){

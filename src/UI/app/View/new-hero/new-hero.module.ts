@@ -7,6 +7,7 @@ import { DataModule } from '@data/data.module';
 import { PipesModule } from "../../../../core/pipes/pipes.module";
 import { NewHeroComponent } from './new-hero.component';
 import { NewHeroViewModel } from './new-hero.viewmodel';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        TranslateModule.forChild(),
         DirectivesModule,
         FormsModule,
         ReactiveFormsModule,

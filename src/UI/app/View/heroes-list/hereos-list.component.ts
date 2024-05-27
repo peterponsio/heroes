@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeroModel } from '@models/hero.models';
 import { TranslateService } from '@ngx-translate/core';
+import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-hereos-list',
@@ -12,6 +13,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class HereosListComponent {
 
   searchTerm: string = ""
+  public searchTermUpdater: string = '';
+  public searchTermUpdate = new Subject<any>();
 
   constructor(
     private router:Router,
@@ -19,6 +22,14 @@ export class HereosListComponent {
     public vm: HeroesListViewModel,
   ){
     vm.initViewModel()
+
+    this.searchTermUpdate.pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+     )
+      .subscribe(value => {
+        this.searchTerm = value
+      });
   }
 
   createNewHero(){
