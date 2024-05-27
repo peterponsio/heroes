@@ -8,12 +8,14 @@ import { HeroRemoteDataSource } from './source/hero/HeroRemoteDataSource';
 import { HeroImpRepository } from './repositories/hero/hero-implementation.repository';
 import { HeroDataSource } from './datasource/hero/hero-datasource';
 import { CreateHeroUseCase } from '@usecases/create-hero.usecase';
+import { EditHeroUseCase } from '@usecases/edit-hero.usecase';
 
 @NgModule({
   providers: [
     Request,
     HeroesListUseCase,
     CreateHeroUseCase,
+    EditHeroUseCase,
     { provide: HeroDataRepository, useClass: HeroImpRepository },
     { provide: HeroRemoteDataSource, useClass: HeroDataSource },
 

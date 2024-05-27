@@ -1,1 +1,58 @@
-<p>edit-hero works!</p>
+<div class="w-full flex justify-start items-center p-10">
+    <button type="button" class="w-full flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-black border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700" (click)="goBack()">
+        <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+        </svg>
+        <span [i18n]="'EDIT_HERO.BACK_BTN'"></span>
+    </button>
+</div>
+<section class="w-full bg-cover bg-center py-24 flex justify-center items-center">
+    <form class="lg:w-1/2 md:w-full sm:w-full flex justify-center" action="" [formGroup]="editHeroForm">
+        <div class="max-w-md w-full bg-white rounded p-6 ">
+
+            <div class="mb-4">
+                <h1 class="text-xl font-bold" [i18n]='"EDIT_HERO.INTRO_HEADER"'></h1>
+            </div>
+            <div>
+                <input formControlName="name" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" [placeholder]="translate.instant('EDIT_HERO.FORM.NAME')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="editHeroForm.controls['name'].invalid && (editHeroForm.controls['name'].dirty || editHeroForm.controls['name'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"EDIT_HERO.VALIDATORS.NAME"' *ngIf="editHeroForm.controls['name'].errors"></small>
+                </ng-container>                      
+            </div>
+
+
+            <div class="pt-2">
+                <input formControlName="power" [placeholder]="translate.instant('EDIT_HERO.FORM.POWER')" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text">
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="editHeroForm.controls['power'].invalid && (editHeroForm.controls['power'].dirty || editHeroForm.controls['power'].touched)">
+                    <p class=" text-sm text-red-500" [i18n]='"EDIT_HERO.VALIDATORS.POWER"' *ngIf="editHeroForm.controls['power'].errors"></p>
+                </ng-container>
+            </div>
+
+            <div class="pt-2">
+                <input formControlName="avatar" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="text" [placeholder]="translate.instant('EDIT_HERO.FORM.URL')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="editHeroForm.controls['avatar'].invalid && (editHeroForm.controls['avatar'].dirty || editHeroForm.controls['avatar'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"EDIT_HERO.VALIDATORS.URL"' *ngIf="editHeroForm.controls['avatar'].errors"></small>
+                </ng-container>                      
+            </div>
+
+            <div class="pt-2">
+                <input formControlName="height" class="w-full p-4 text-sm bg-gray-50 focus:outline-none border border-gray-200 rounded text-gray-600" type="number" [placeholder]="translate.instant('EDIT_HERO.FORM.HEIGHT')" >
+            </div>
+            <div class="h-2 pt-0 pb-4" >
+                <ng-container *ngIf="editHeroForm.controls['height'].invalid && (editHeroForm.controls['height'].dirty || editHeroForm.controls['height'].touched)">
+                    <small class=" text-sm text-red-500" [i18n]='"EDIT_HERO.VALIDATORS.HEIGHT"' *ngIf="editHeroForm.controls['height'].errors"></small>
+                </ng-container>                      
+            </div>
+
+            <div class="pt-4">
+                <button (click)="editHeroById()" [i18n]='"EDIT_HERO.CREATE_BTN"' [ngClass]="{'opacity-60': !editHeroForm.valid}" [disabled]="!editHeroForm.valid" class="w-full rounded-md bg-black px-3 py-4 text-white"></button>
+            </div>
+        </div>
+    </form>
+</section>

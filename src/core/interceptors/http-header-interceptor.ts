@@ -12,7 +12,7 @@ export class HeadersInterceptorService implements HttpInterceptor{
 
   private publicEndpoints = environment.publicEndpoints;
 
-  constructor(private storageManager: LocalStorageManager) { }
+  constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return from(this.setHeaders(req))
@@ -26,12 +26,11 @@ export class HeadersInterceptorService implements HttpInterceptor{
   private async setHeaders(request: HttpRequest<any>): Promise<HttpHeaders>  {
     let { headers } = request
     //set de header si es un endpoint publico o no
+    headers.set('content-type','application/json')
+    headers.set('Access-Control-Allow-Origin','*')
     if (!this.isPublicEndPoint(request)) {
-      const authInfo = this.storageManager.get('auth_data')
-      if (authInfo) {     
-        const bearerToken = JSON.parse(authInfo)  ??   {}
-        headers = headers.set("Authorization", `Bearer ${bearerToken.accessToken}`);
-      }
+      //const authInfo = this.storageManager.get('auth_data')
+     
     } else {
       headers = headers.delete("Authorization");
     }

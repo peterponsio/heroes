@@ -29,6 +29,23 @@
             "URL": "Url de imagen invalida"
         }
     },
+    "EDIT_HERO": {
+        "INTRO_HEADER": "Editar Heroe",
+        "CREATE_BTN": "Editar Heroe",
+        "BACK_BTN": "Volver",
+        "FORM":{
+            "NAME": "Nombre",
+            "POWER": "Poder",
+            "URL": "Url Imagen",
+            "HEIGHT": "Altura"
+        },
+        "VALIDATORS": {
+            "NAME": "Nombre invalido",
+            "POWER": "Poder invalido",
+            "HEIGHT": "Altura invalida",
+            "URL": "Url de imagen invalida"
+        }
+    },
     "HTTP_ERRORS":{
         "GENERIC": "Algo salio mal, vuelve a intentarlo"
     }

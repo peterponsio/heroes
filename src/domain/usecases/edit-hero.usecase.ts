@@ -5,11 +5,11 @@ import { HeroDao, HeroModel } from '@models/hero.models';
 import { HeroDataRepository } from '@repositories/herodata.repository';
 
 @Injectable()
-export class CreateHeroUseCase implements UseCase<{}, any>
+export class EditHeroUseCase implements UseCase<{}, any>
 {
   constructor(private heroRepository: HeroDataRepository) {}
 
   execute(param: HeroDao): Observable<HeroModel> {
-    return this.heroRepository.createNewHero(param)
+    return this.heroRepository.editHeroById(param)
   }
 }

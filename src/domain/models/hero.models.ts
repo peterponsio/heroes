@@ -17,7 +17,7 @@ export interface HeroModel {
 }
 
 export interface HeroDao{
-    id: "";
+    id: string;
     name : string;
     power: string;
     height: number;

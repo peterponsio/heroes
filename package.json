@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-api": "python api/app.py  "
+    "start-api": "python api/app.py",
+    "start-proxy": "ng serve --proxy-config proxy.conf.json"
   },
   "private": true,
   "dependencies": {

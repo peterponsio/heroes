@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "https://superheroes-b94841e3c347.herokuapp.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }

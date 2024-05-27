@@ -1,6 +1,7 @@
 import { HeroesListViewModel } from './heroes-list.viewmodel';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HeroModel } from '@models/hero.models';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -22,6 +23,10 @@ export class HereosListComponent {
 
   createNewHero(){
     this.router.navigate(["/create-hero"])
+  }
+
+  editHeroById(hero: HeroModel){
+    this.router.navigate([`/edit-hero/${hero.id}`])
   }
 
 }

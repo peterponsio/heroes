@@ -14,7 +14,14 @@ export class HeroImpRepository extends HeroDataRepository {
     super();
   }
 
-  override createNewHero(param: HeroDao): Observable<string> {
+  override editHeroById(param: HeroDao): Observable<HeroModel> {
+    return this.heroRemoteDataSource.editHeroById(param)
+    .pipe(
+      tap(res=> console.log('edited hero', res))
+    )
+  }
+
+  override createNewHero(param: HeroDao): Observable<HeroModel> {
     return this.heroRemoteDataSource.createNewHero(param)
     .pipe(
       tap(res=> console.log("created hero ", res))

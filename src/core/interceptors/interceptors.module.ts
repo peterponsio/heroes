@@ -19,7 +19,7 @@ import { HeadersInterceptorService } from './http-header-interceptor';
     exports:[],
     providers: [
         //{provide: HTTP_INTERCEPTORS, useClass: RefreshSessionInterceptorService, multi: true},
-        //{provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptorService, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptorService, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorProvider, multi: true},
        
     ]

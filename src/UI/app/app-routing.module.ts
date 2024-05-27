@@ -23,6 +23,14 @@ const routes: Routes = [
         (m) => m.NewHeroModule
       ),
       canActivate:[AuthGuardService]
+  },
+  {
+    path: 'edit-hero/:id',
+    loadChildren: () =>
+      import('./View/edit-hero/edit-hero.module').then(
+        (m) => m.EditHeroModule
+      ),
+      canActivate:[AuthGuardService]
   }
 ];
 
