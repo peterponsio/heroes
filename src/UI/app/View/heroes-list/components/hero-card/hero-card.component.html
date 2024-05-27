@@ -1,6 +1,6 @@
 <div class="flex text-white w-full justify-between border-b border-gray-400 items-center">
-    <div class="py-4 px-6"><img class="h-52 w-32" [src]="hero.avatar" [alt]="hero.name"></div>
-    <div class="py-4 px-6">{{hero.name | titlecase}}</div>
-    <div class="py-4 px-6">{{hero.power}}</div>
-    <div class="py-4 px-6">{{hero.height}}</div>
+    <div class="py-4 lg:pl-14 sm:pl-0"><img class="h-52 w-32 rounded-xl aspect-w-16 aspect-h-9" [src]="hero.avatar" [alt]="hero.name"></div>
+    <div class="py-4 lg:pr-4">{{hero.name | titlecase}}</div>
+    <div class="py-4">{{hero.power}}</div>
+    <div class="py-4 lg:pr-12 lg:pl-6 sm:pl-0 sm:pr-0">{{hero.height}}</div>
 </div>
